@@ -1,0 +1,7 @@
+.vscode
+__pycache__
+otool.build
+otool.dist
+
+*.exe
+*.dll
