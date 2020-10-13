@@ -26,6 +26,10 @@ If you have Two-Factor Authentication enabled on the account, you will be prompt
 There are a few commands available by the application:
 - `games` provides you with a list of the base games (and their IDs) entitled to your Origin account.
   - `python3 otool.py -E <email> -P <password> games`
+- `entitlements` provides you with a list of games and DLCs (with their IDs) that you are entitled to on your Origin account.
+  - `python3 otool.py -E <email> -P <password> entitlements -w <wildcard>`
+  - An example command to find DLC entitlements looks like this:
+    - `python3 otool.py -E <email> -P <password> entitlements -w BF3:PC:XPACK*`
 - `allgames` provides you with a list of all games (and their IDs) available on the Origin platform. This can be used to obtain a list of DLCs for a certain game.
   - `python3 otool.py -E <email> -P <password> allgames`
 - `install` allows you to install a game and its DLCs provided you have the respective IDs. 
@@ -34,6 +38,12 @@ There are a few commands available by the application:
     - Frostbite (`fb`)
   - An example installation command for `BF3` looks like this:
     - `python3 otool.py -E <email> -P <password> install -i "fb" -g "DR:225064100" -e "OFB-EAST:50631" "OFB-EAST:51080" "OFB-EAST:55172" "OFB-EAST:109546437" -d "~/bf3"`
+      - `OFB-EAST:50631`: Close Quarters (XPACK2 - Non-premium)
+      - `OFB-EAST:51080`: Armored Kill (XPACK3 - Non-premium)
+      - `OFB-EAST:55172`: Aftermath (XPACK4 - Non-premium)
+      - `OFB-EAST:109546437`: End Game (XPACK5 - Non-premium)
+    - You can use the `entitlements` command provided above to find the DLC IDs for your account.
+
 
 ## Disclaimer
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,

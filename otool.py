@@ -5,6 +5,7 @@ from time import sleep
 from getpass import getpass
 from inspect import getfullargspec
 from platform import platform
+from fnmatch import fnmatch
 
 from lib import utils
 from lib.arg_parser import parser, argument, subcommand
@@ -76,7 +77,7 @@ class OriginCLI(object):
     @subcommand(description="Get a list of owned games and their IDs")
     def games(self):
         # Select games
-        owned_games = self._entitlement_service.get_owned_games()        
+        owned_games = self._entitlement_service.get_owned_games()
         owned_games = list(filter(lambda x: x["@offerType"] == "Base Game", owned_games["offers"]["offer"]))
 
         print("Owned games: ")
@@ -84,6 +85,21 @@ class OriginCLI(object):
             game_id = game["@offerId"]
             game_name = game["localizableAttributes"]["displayName"]
             print(f"- {game_name} (ID: {game_id})")
+
+    @subcommand(description="Get a list of entitlements matching a wildcard", args=[
+        argument("-w", "--wildcard", type=str, help="Wildcard to match", required=True),
+    ])
+    def entitlements(self, wildcard):
+        # Get entitlements
+        entitlements = self._entitlement_service.get_entitlements()["entitlements"]
+
+        print("Entitled to products: ")
+        for entitlement in entitlements:
+            if "entitlementTag" in entitlement and "productId" in entitlement:
+                tag = entitlement["entitlementTag"]
+                product_id = entitlement["productId"]
+                if fnmatch(tag, wildcard):
+                    print(f"- {tag} (ID: {product_id})")
 
     @subcommand(description="Get a list of all games and their IDs")
     def allgames(self):
