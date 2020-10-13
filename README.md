@@ -14,7 +14,7 @@ This lightweight and simple interface means you do not need to have X servers, o
 - Perform updates on downloaded games
 
 ## How to use it
-There are a few prerequisites that must be satisfied in order to use this application. As a first step, you must ensure that a version of Python 3 is installed on your system. Furthermore, you must install the required Python packages found in `requirements.txt`. This can be done through `pip` using `pip install -r requirements.txt`.
+There are a few prerequisites that must be satisfied in order to use this application. As a first step, you must ensure that a version of Python 3 is installed on your system. Furthermore, you must install the required Python packages found in `requirements.txt`. This can be done through `pip3` using `pip3 install -r requirements.txt`.
 
 ## Logging in
 In order to use this application, you must provide your Origin email address and password. This can be done using the `-E` and `-P` flags.
