@@ -20,10 +20,10 @@ There are a few prerequisites that must be satisfied in order to use this applic
 In order to use this application, you must provide your Origin email address and password. This can be done using the `-E` and `-P` flags.
 - `python3 otool.py -E <email> -P <password> <command>`
 
-If you have Two-Factor Authentication enabled on the account, you will be prompted to select the method you wish to receive the code with. Once you select the method, you must wait to receive the code and entire it once you have received it.
+If you have Two-Factor Authentication enabled on the account, you will be prompted to select the method you wish to receive the code with. Once you select the method, you must wait to receive the code and enter it once you have received it.
 
 ## Commands
-There are a few commands available by the application:
+There are a few commands provided by the application:
 - `games` provides you with a list of the base games (and their IDs) entitled to your Origin account.
   - `python3 otool.py -E <email> -P <password> games`
 - `entitlements` provides you with a list of games and DLCs (with their IDs) that you are entitled to on your Origin account.
