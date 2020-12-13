@@ -35,10 +35,6 @@ class Download(object):
         return self._path
 
     @property
-    def running(self):
-        return self._running
-
-    @property
     def size(self):
         return self._size
 
