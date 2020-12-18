@@ -20,24 +20,27 @@ There are a few prerequisites that must be satisfied in order to use this applic
 In order to use this application, you must provide your Origin email address and password. This can be done using the `-E` and `-P` flags.
 - `python3 otool.py -E <email> -P <password> <command>`
 
+If you do not provide your credentials through the command-line flags, you will be prompted to once the utility has started.
+- `python3 otool.py <command>`
+
 If you have Two-Factor Authentication enabled on the account, you will be prompted to select the method you wish to receive the code with. Once you select the method, you must wait to receive the code and enter it once you have received it.
 
 ## Commands
 There are a few commands provided by the application:
 - `games` provides you with a list of the base games (and their IDs) entitled to your Origin account.
-  - `python3 otool.py -E <email> -P <password> games`
+  - `python3 otool.py games`
 - `entitlements` provides you with a list of games and DLCs (with their IDs) that you are entitled to on your Origin account.
-  - `python3 otool.py -E <email> -P <password> entitlements -w <wildcard>`
+  - `python3 otool.py entitlements -w <wildcard>`
   - An example command to find DLC entitlements looks like this:
-    - `python3 otool.py -E <email> -P <password> entitlements -w BF3:PC:XPACK*`
+    - `python3 otool.py entitlements -w BF3:PC:XPACK*`
 - `allgames` provides you with a list of all games (and their IDs) available on the Origin platform. This can be used to obtain a list of DLCs for a certain game.
-  - `python3 otool.py -E <email> -P <password> allgames`
+  - `python3 otool.py allgames`
 - `install` allows you to install a game and its DLCs provided you have the respective IDs. 
-  - `python3 otool.py -E <email> -P <password> install -i <installer> -g "<game_id>" -e "<dlc_id1>" "<dlc_id2>" ... -d <installation_path>`
+  - `python3 otool.py install -i <installer> -g "<game_id>" -e "<dlc_id1>" "<dlc_id2>" ... -d <installation_path>`
   - The available installer options are:
     - Frostbite (`fb`)
   - An example installation command for `BF3` looks like this:
-    - `python3 otool.py -E <email> -P <password> install -i "fb" -g "DR:225064100" -e "OFB-EAST:50631" "OFB-EAST:51080" "OFB-EAST:55172" "OFB-EAST:109546437" -d "~/bf3"`
+    - `python3 otool.py install -i "fb" -g "DR:225064100" -e "OFB-EAST:50631" "OFB-EAST:51080" "OFB-EAST:55172" "OFB-EAST:109546437" -d "~/bf3"`
       - `OFB-EAST:50631`: Close Quarters (XPACK2 - Non-premium)
       - `OFB-EAST:51080`: Armored Kill (XPACK3 - Non-premium)
       - `OFB-EAST:55172`: Aftermath (XPACK4 - Non-premium)

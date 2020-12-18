@@ -22,11 +22,11 @@ class OriginCLI(object):
         parser.add_argument("-E", "--email",
                             type=str,
                             help="Origin Account Email",
-                            required=True)
+                            required=False)
         parser.add_argument("-P", "--password",
                             type=str,
                             help="Origin Account Password",
-                            required=True)
+                            required=False)
         parser.add_argument("-v", "--verbose",
                             type=str,
                             help="Verbosity",
@@ -41,6 +41,12 @@ class OriginCLI(object):
         if self._args.command is None:
             parser.print_help()
             return
+
+        # Get account details if they were not provided in the command-line
+        if not self._args.email:
+            self._args.email = input("Origin email: ")
+        if not self._args.password:
+            self._args.password = input("Origin password: ")
 
         # Login using provided email and password
         print(f"Logging in as: {self._args.email}")
