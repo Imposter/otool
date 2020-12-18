@@ -17,21 +17,21 @@ from api.services.downloads import DownloadService
 
 from installer.frostbite import FrostbiteInstaller
 
-class VOToolCLI(object):
+class OToolCLI(object):
     def __init__(self):
         parser = ArgumentParser()
-        parser.add_argument("-E", "--email",
-                            type=str,
-                            help="Origin Account Email",
-                            required=True)
-        parser.add_argument("-P", "--password",
-                            type=str,
-                            help="Origin Account Password",
-                            required=True)
         parser.add_argument("-d", "--path",
                             type=str,
                             help="BF3 installation path",
                             required=True)
+        parser.add_argument("-E", "--email",
+                            type=str,
+                            help="Origin Account Email",
+                            required=False)
+        parser.add_argument("-P", "--password",
+                            type=str,
+                            help="Origin Account Password",
+                            required=False)
         parser.add_argument("-r", "--remove",
                             type=bool,
                             help="Removes downloaded data after installation",
@@ -47,6 +47,12 @@ class VOToolCLI(object):
         self._api = APISession()
 
     def run(self):
+        # Get account details if they were not provided in the command-line
+        if not self._args.email:
+            self._args.email = input("Origin email: ")
+        if not self._args.password:
+            self._args.password = input("Origin password: ")
+
         # Login using provided email and password
         print(f"Logging in as: {self._args.email}")
         print("")
@@ -123,5 +129,5 @@ if __name__ == "__main__":
     print("===============================================================")
     print("")
 
-    cli = VOToolCLI()
+    cli = OToolCLI()
     cli.run()
