@@ -4,7 +4,7 @@ OTool is designed as an open source command-line utility for downloading your Or
 This lightweight and simple interface means you do not need to have X servers, or out-of-date versions of Origin installed on your Linux system in order to use it.
 
 ## Venice Unleashed
-We have a Venice Unleashed specific branch available at [otool/vu](https://github.com/Imposter/otool/tree/vu). This version simplifies the installation process by automatically finding your Battlefield 3 and expansion pack product IDs, followed by downloading and installating.
+We have a Venice Unleashed specific branch available at [otool/vu](https://github.com/Imposter/otool/tree/vu). This version simplifies the installation process by automatically finding your Battlefield 3 and expansion pack product IDs, followed by downloading and installing.
 
 ## What you can do
 - View owned games and their IDs
