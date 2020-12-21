@@ -89,7 +89,7 @@ class OToolCLI(object):
             game_name = game["localizableAttributes"]["displayName"]
 
             # If the game is Battlefield 3, store the ID
-            if game_name == "Battlefield 3™":
+            if game_name.startswith("Battlefield 3™️"):
                 bf3_game_id = game_id
                 break
 
