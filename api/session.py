@@ -103,9 +103,9 @@ class APISession(object):
         login_response = response.text
 
         # Check if 2FA is enabled on the account
-        if re.search(r"<div class=\"tfa-container\">", login_response):
+        if re.search(r"<div id=\"tfa-login\" class=\"views\">", login_response):
             # Get a list of all available 2FA methods
-            methods = re.findall(r"name=\"codeType\" value=\"(\w+)\"", login_response)
+            methods = re.findall(r"name=\"codeType\" id=(\w+)", login_response)
             
             # Prompt user for selection of method
             method = mfa_method(methods)

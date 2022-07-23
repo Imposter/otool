@@ -20,13 +20,13 @@ class Transport(object):
         response.url = new_url
 
     def get(self, *args, **kwargs):
-        response = self._session.get(*args, **kwargs)
+        response = self._session.get(*args, verify=False, **kwargs)
         self._res_update(response)
         
         return response
 
     def post(self, *args, **kwargs):
-        response = self._session.post(*args, **kwargs)
+        response = self._session.post(*args, verify=False, **kwargs)
         self._res_update(response)
         
         return response

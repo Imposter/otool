@@ -7,10 +7,6 @@ from inspect import getfullargspec
 from platform import platform
 from fnmatch import fnmatch
 
-from lib import utils
-from lib.arg_parser import parser, argument, subcommand
-
-from api import origin
 from api.session import APISession
 from api.services.entitlements import EntitlementService
 from api.services.downloads import DownloadService
