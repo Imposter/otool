@@ -8,9 +8,6 @@ from inspect import getfullargspec
 from platform import platform
 from fnmatch import fnmatch
 
-from lib import utils
-
-from api import origin
 from api.session import APISession
 from api.services.entitlements import EntitlementService
 from api.services.downloads import DownloadService
@@ -124,7 +121,6 @@ class OToolCLI(object):
 if __name__ == "__main__":
     print("===============================================================")
     print("OTool by Imposter")
-    print("This edition of OTool is designed for Venice Unleashed")
     print("Get VU at www.playvu.com")
     print("===============================================================")
     print("")
